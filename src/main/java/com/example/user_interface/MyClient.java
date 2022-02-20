@@ -29,9 +29,9 @@ class MyClient{
         }
     }
 
-    public String sendRecive(String toSend) throws IOException {
+    public String sendRecive(String jsonPerson) throws IOException {
         try {
-            dout.writeUTF(toSend + "\n");
+            dout.writeUTF(jsonPerson + "\n");
             dout.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,11 +51,4 @@ class MyClient{
 //            str2=din.readUTF();
             System.out.println("Server says: "+str2);
         }
-
-
-
-
-
-
-
 }

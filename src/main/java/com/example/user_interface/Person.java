@@ -19,8 +19,8 @@ public class Person implements Serializable {
 
     public String toJson() {
         return "{" + "name:"+ this.name + " ,age:" + this.age + " ,ID:" + this.ID + " ,profession:" + this.profession
-                + " ,experience_y:" + this.experience_y + " ,operation:" + this.operation + ",min age:" + this.min_age
-                + ",max age" + this.max_age + ",min years of experience" + this.min_years_of_experienc + "}";
+                + " ,experience_y:" + this.experience_y + " ,operation:" + this.operation + ",min_age:" + this.min_age
+                + ",max_age:" + this.max_age + ",min_years_of_experience:" + this.min_years_of_experienc + "}";
     }
 
     public int getAge() {

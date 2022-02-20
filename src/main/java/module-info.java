@@ -1,7 +1,7 @@
 module com.example.user_interface {
     requires javafx.controls;
     requires javafx.fxml;
-    requires gson;
+    requires com.google.gson;
 
 
     opens com.example.user_interface to javafx.fxml;

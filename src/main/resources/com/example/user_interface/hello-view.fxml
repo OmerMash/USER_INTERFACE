@@ -69,7 +69,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btn_Search" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Search" />
+            <Button fx:id="btn_Search" mnemonicParsing="false" onAction="#onSearchButtonClick" prefHeight="25.0" prefWidth="60.0" text="Search" />
          </children>
       </VBox>
       <VBox layoutX="114.0" layoutY="577.0" prefHeight="200.0" prefWidth="180.0" spacing="8.0">
