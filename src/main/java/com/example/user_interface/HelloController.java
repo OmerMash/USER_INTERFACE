@@ -31,6 +31,14 @@ public class HelloController{
     private TextField tf_Experience;
     @FXML
     private TextField tf_ID_to_remove;
+    @FXML
+    private TextField tf_search_profession;
+    @FXML
+    private TextField tf_search_experience;
+    @FXML
+    private TextField tf_search_min_age;
+    @FXML
+    private TextField tf_search_max_age;
 
     @FXML
     private TextArea ta_;
@@ -42,24 +50,11 @@ public class HelloController{
 
     @FXML
     protected void onSearchButtonClick() throws IOException {
-        System.out.println(this.tf_Name.getCharacters());
-        Person person = new Person(this.tf_Name.getText(), Integer.parseInt(this.tf_Age.getText().isEmpty()?"0":this.tf_Age.getText()), this.tf_ID.getText(),
-                this.tf_Profession.getText(), Integer.parseInt(this.tf_Experience.getText().isEmpty()?"0":this.tf_Experience.getText()), Operation.ADD);
-        if(person.getProfession()!= null && person.getExperience_y()!= 0 && person.getMin_age()!= 0 && person.getMax_age()!= 0 ){
-            person.setOperation(Operation.SEARCH_ALL);
-        }
-        else if(person.getProfession() != null){
-            person.setOperation(Operation.SEARCH_BY_PROFESSION);
-        }
-        else if(person.getExperience_y() != 0){
-            person.setOperation(Operation.SEARCH_BY_MIN_YEARS_OF_EXPERIENCE);
-        }
-        else if(person.getMin_age() != 0){
-            person.setOperation(Operation.SEARCH_BY_AGE);
-        }
-//        ta_.setText(c.sendRecive(person.toJson()));//NEED TO CHANGE TO SEND JSON NOT STRING
-        ta_.setText(c.sendRecive("a \n"));//NEED TO CHANGE TO SEND JSON NOT STRING
-
+        String str = tf_search_profession.getText() + "," +
+                tf_search_experience.getText() + "," +
+                tf_search_min_age.getText() + "," +
+                tf_search_max_age.getText();
+        ta_.setText(c.sendRecive("SEARCH" + str));
     }
 
     @FXML
@@ -72,7 +67,7 @@ public class HelloController{
 
     @FXML
     protected void onRemoveButtonClick() throws IOException {
-        ta_.setText(c.sendRecive("REMOVE" + tf_ID_to_remove.getText()));
+        ta_.setText(c.sendRecive("REMOVE" + tf_ID_to_remove.getText().trim()));
     }
 
 

@@ -74,10 +74,10 @@
       </VBox>
       <VBox layoutX="114.0" layoutY="577.0" prefHeight="200.0" prefWidth="180.0" spacing="8.0">
          <children>
-            <TextField fx:id="tf_Name1" />
-            <TextField fx:id="tf_Age1" />
-            <TextField fx:id="tf_ID1" />
-            <TextField fx:id="tf_Profession1" />
+            <TextField fx:id="tf_search_profession" />
+            <TextField fx:id="tf_search_experience" />
+            <TextField fx:id="tf_search_min_age" />
+            <TextField fx:id="tf_search_max_age" />
          </children>
       </VBox>
       <Label layoutX="264.0" layoutY="33.0" text="HR Management System">
