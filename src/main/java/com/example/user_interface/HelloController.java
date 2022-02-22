@@ -50,24 +50,30 @@ public class HelloController{
 
     @FXML
     protected void onSearchButtonClick() throws IOException {
+        String str2;
         String str = tf_search_profession.getText() + "," +
                 tf_search_experience.getText() + "," +
                 tf_search_min_age.getText() + "," +
                 tf_search_max_age.getText();
-        ta_.setText(c.sendRecive("SEARCH" + str));
+        str2 = c.sendRecive("SEARCH" + str + "\n");
+        ta_.setText(str2);
     }
 
     @FXML
     protected void onAddButtonClick() throws IOException {
+        String str;
         System.out.println(this.tf_Name.getCharacters());
         Person person = new Person(this.tf_Name.getText(), Integer.valueOf(this.tf_Age.getText()), this.tf_ID.getText(),
                 this.tf_Profession.getText(), Integer.valueOf(this.tf_Experience.getText()), Operation.ADD);
-        ta_.setText(c.sendRecive("ADD" + person.toJson()));
+        str = c.sendRecive("ADD" + person.toJson());
+        if(str.length() > 3){
+            ta_.setText(str);
+        }
     }
 
     @FXML
     protected void onRemoveButtonClick() throws IOException {
-        ta_.setText(c.sendRecive("REMOVE" + tf_ID_to_remove.getText().trim()));
+        ta_.setText(c.sendRecive("REMOVE" + tf_ID_to_remove.getText()) + "\n");
     }
 
 

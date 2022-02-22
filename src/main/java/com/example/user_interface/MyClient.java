@@ -31,12 +31,15 @@ class MyClient{
 
     public String sendRecive(String jsonPerson) throws IOException {
         try {
-            dout.writeUTF(jsonPerson + "\n");
+            dout.writeUTF(jsonPerson);
             dout.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        String str1 = din.readUTF();
+        while(str1.length() < 4 ){
+            str1 = din.readUTF();
+        }
         return din.readUTF();
     }
 
